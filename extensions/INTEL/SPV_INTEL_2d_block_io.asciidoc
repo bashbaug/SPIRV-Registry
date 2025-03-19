@@ -676,7 +676,11 @@ For one-byte elements, the transform operation combines every four rows together
 
 == Out-of-Bounds Behavior
 
-If some or all of the 2D block is out-of-bounds, where the bounds are defined by the _Memory Width_ and _Memory Height_, the behavior is as follows:
+If the 2D region of memory defined by the _Base Pointer_, _Memory Pitch_, and _Memory Height_ is valid, then the behavior for block loads, prefetches, and stores is defined.
+Otherwise, when some or all of the 2D region of memory is invalid, the behavior for block loads, prefetches, and stores is undefined.
+
+The bounds of the 2D region of memory are defined by the _Memory Width_ and _Memory Height_.
+For all blocks defined by the _Coordinate_, _Element Size_, _Block Width_, _Block Height_, and _Block Count_, if some or all of a block is out-of-bounds, the behavior is as follows:
 
 * For loads, any out-of-bounds elements are assigned the value zero.
 * For prefetches and stores, any out-of-bounds elements are ignored.
@@ -721,7 +725,7 @@ The client API environment specs will restrict all of these operands to 32-bit i
 *RESOLVED*: We will use "width" and "height" to describe both the block dimensions and the memory dimensions.
 --
 
-. Terminology-wise, how should we describe the coordinate to read?
+. Terminology-wise, how should we describe the coordinate to load from or store to?
 +
 --
 *RESOLVED*: The operand will simply be described as a vector coordinate.
@@ -739,7 +743,7 @@ The first coordinate will be the "X" or "Column" coordinate, and the second coor
 +
 --
 *RESOLVED*: The behavior is well-defined.
-Specifically, out-of-bounds reads are assigned the value zero, and out-of-bounds prefetches and stores are ignored.
+Specifically, out-of-bounds loads are assigned the value zero, and out-of-bounds prefetches and stores are ignored.
 --
 
 
