@@ -50,8 +50,8 @@ Copyright (c) 2025 Intel Corporation. All rights reserved.
 
 [width="40%",cols="25,25"]
 |========================================
-| Last Modified Date | 2025-02-28
-| Revision           | 2
+| Last Modified Date | 2025-10-02
+| Revision           | 3
 |========================================
 
 == Dependencies
@@ -758,4 +758,5 @@ Specifically, out-of-bounds loads are assigned the value zero, and out-of-bounds
 |Rev|Date|Author|Changes
 |1|2025-01-07|Ben Ashbaugh|Initial revision for publication
 |2|2025-02-28|Ben Ashbaugh|Updated restrictions
+|3|2025-10-02|Ben Ashbaugh|Clarify out-of-bounds behavior, block counts greater than one
 |========================================
